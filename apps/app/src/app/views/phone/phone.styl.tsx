@@ -48,5 +48,17 @@ export const styles = StyleSheet.create({
   },
   containerForm:{
     paddingHorizontal:20
-  }
+  },
+  imageContainer: {
+    marginTop: 20,
+    flex: 1,
+    justifyContent:"center",
+    alignItems:"center"
+  },
+  image: {
+    height: 400,
+    transform:[
+      {translateY:-20}
+    ]
+  },
 });

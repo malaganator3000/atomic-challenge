@@ -17,13 +17,11 @@ export interface FormPhoneProps {
   nextStep?: () => void;
 }
 
-export function FormPhone({ nextStep }: FormPhoneProps) {
+export const FormPhone = ({ nextStep }: FormPhoneProps) => {
   const [status, setName, setLast, setPhone] = useStatusform();
   const {
     control,
     handleSubmit,
-    getFieldState,
-
     formState: { errors, isValid },
   } = useForm<FormPhone>({
     defaultValues: {
@@ -58,7 +56,7 @@ export function FormPhone({ nextStep }: FormPhoneProps) {
           },
           pattern: {
             value: /^[0-9]{10}$/,
-            message: 'El Número solo debe contener 10 dígitos',
+            message: 'Solo se aceptan números',
           },
         }}
         render={({ field: { onChange, onBlur, value } }) => (
@@ -78,7 +76,7 @@ export function FormPhone({ nextStep }: FormPhoneProps) {
 
       <View style={styles.buttoncontent}>
         <TouchableOpacity
-          disabled={!isValid}
+          // disabled={!isValid}
           onPress={handleSubmit(onSubmit)}
           style={{
             ...styles.buttonSumit,
@@ -90,7 +88,7 @@ export function FormPhone({ nextStep }: FormPhoneProps) {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -109,6 +107,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 15,
     backgroundColor: 'white',
+    color: 'black',
   },
   errorText: {
     color: 'red',

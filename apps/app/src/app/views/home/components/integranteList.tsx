@@ -25,12 +25,18 @@ export function IntegranteList({}: IntegranteListProps) {
             <ActivityIndicator />
           </View>
         ) : (
-          <FlatList
-            nestedScrollEnabled
-            data={equipo}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => <IntegranteItem integrante={item} />}
-          />
+          // <FlatList
+          //   nestedScrollEnabled
+          //   data={equipo}
+          //   keyExtractor={(item) => item.id.toString()}
+          //   renderItem={({ item }) => <IntegranteItem integrante={item} />}
+          // />
+
+          <>
+            {equipo.map((i) => (
+              <IntegranteItem integrante={i} key={i.id} />
+            ))}
+          </>
         )}
       </View>
     </View>

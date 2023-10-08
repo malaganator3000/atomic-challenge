@@ -59,7 +59,7 @@ export function Footer({}: FooterProps) {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 150,
+    height: 160,
     backgroundColor: '#000000',
   },
   content: {
@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom:10
   },
   derechoscontent: {
     height: '50%',

@@ -19,6 +19,7 @@ export const sendFormLogic = createLogic({
       statusesForm.last.valid &&
       statusesForm.phone.valid
     ) {
+      dispatch(networkingActions.SET_ERROR_FORM(null));
       sendFormService({
         firstname: statusesForm.name.value,
         lastname: statusesForm.last.value,
@@ -53,6 +54,7 @@ export const sendFormLogic = createLogic({
               text: err.toString(),
               textColor: 'red',
             },
+            duration: Snackbar.LENGTH_LONG,
           });
           dispatch(networkingActions.SET_ERROR_FORM(err));
         })
@@ -69,6 +71,7 @@ export const sendFormLogic = createLogic({
         text: 'Ok',
         textColor: 'red',
       },
+      duration: Snackbar.LENGTH_SHORT,
     });
     //@ts-ignore
     dispatch(networkingActions.SET_LOADING_FORM(false));

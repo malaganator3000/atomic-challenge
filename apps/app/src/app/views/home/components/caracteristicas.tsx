@@ -32,7 +32,7 @@ export function Caracteristicas({}: CaracteristicasProps) {
           <Text style={{ ...styles.baseText }}>el </Text>
           <Text style={{ ...styles.baseText }}>brazo </Text>
           <Text style={{ ...styles.baseText }}>derecho </Text>
-          <Text style={{ ...styles.baseText, color: NARANJA }}>de</Text>
+          <Text style={{ ...styles.baseText, color: NARANJA }}>de </Text>
           <Text style={{ ...styles.baseText, color: NARANJA }}>
             la tecnología
           </Text>

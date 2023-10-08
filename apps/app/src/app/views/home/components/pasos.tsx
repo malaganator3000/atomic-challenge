@@ -3,6 +3,7 @@ import { useAddSection } from '../../../hooks/addSection';
 import { SectionProps } from '../types/SectionProps';
 import { NARANJA } from '../../../const/color';
 import { QuieroSerParte } from './quieroSerParte';
+import ArrowRightIcon from '../../../components/arrowIcon';
 
 export interface PasosProps extends SectionProps {
   goRegister: () => void;
@@ -39,20 +40,20 @@ export function Pasos({ goRegister }: PasosProps) {
             <Text style={styles.pasoText}>Contratación remota</Text>
           </View>
           <View style={styles.pasoArrowcontent}>
-            <View style={styles.pasoArrow} />
+            <ArrowRightIcon />
           </View>
 
           <View style={styles.pasoTextcontent}>
             <Text style={styles.pasoText}>Entrevista con el área de RH</Text>
           </View>
           <View style={styles.pasoArrowcontent}>
-            <View style={styles.pasoArrow} />
+            <ArrowRightIcon />
           </View>
           <View style={styles.pasoTextcontent}>
             <Text style={styles.pasoText}>Prueba práctica</Text>
           </View>
           <View style={styles.pasoArrowcontent}>
-            <View style={styles.pasoArrow} />
+            <ArrowRightIcon />
           </View>
           <View style={styles.pasoTextcontent}>
             <Text style={styles.pasoText}>Entrevista técnica</Text>
@@ -93,7 +94,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 160,  
+    height: 160,
   },
   pasosContent: {
     flexDirection: 'row',
@@ -114,19 +115,14 @@ const styles = StyleSheet.create({
   },
   pasoArrowcontent: {
     flex: 1,
-    justifyContent:"center",
-    alignItems:"center"
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  pasoArrow: {
-    width: 10,
-    height: 10,
-    backgroundColor: NARANJA,
-    borderRadius: 20,
-  },
+
   botoncontent: {
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical:25
+    marginVertical: 25,
   },
 });

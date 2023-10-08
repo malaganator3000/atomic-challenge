@@ -6,11 +6,13 @@ import Snackbar from 'react-native-snackbar';
 export const fgetNamesLogic = createLogic({
   type: networkingActions.GET_NAMES.type,
 
-  latest: true, 
+  latest: true,
   process({ getState, action }, dispatch, done) {
     getNamesService()
       .then((response) => {
         dispatch(networkingActions.SET_EQUIPO(response));
+        //@ts-ignore
+        dispatch(networkingActions.SET_LOADING_EQUIPO(false));
       })
       .catch((err) => {
         Snackbar.show({
@@ -19,6 +21,7 @@ export const fgetNamesLogic = createLogic({
             text: err.toString(),
             textColor: 'red',
           },
+          duration:Snackbar.LENGTH_LONG
         });
       })
       .finally(() => {

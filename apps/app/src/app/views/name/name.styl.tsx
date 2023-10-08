@@ -1,20 +1,22 @@
-import { StyleSheet } from 'react-native';
-
+import { StyleSheet, Dimensions } from 'react-native';
+const { height } = Dimensions.get('screen');
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height,
+    width: '100%',
+    // position: 'relative',
+    // backgroundColor: 'blue',
   },
   content: {
     width: '100%',
     height: '100%',
-    
   },
   titleContent: {
-    marginTop:30,
+    marginTop: 30,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom:30
+    marginBottom: 30,
   },
   iconContent: {
     flex: 1,
@@ -25,11 +27,10 @@ export const styles = StyleSheet.create({
     flex: 3,
     // justifyContent: 'center',
     // alignItems: 'center',
-    marginHorizontal:10,
+    marginHorizontal: 10,
     flexDirection: 'row',
     flexWrap: 'wrap',
     width: '100%',
-    
   },
   titleText: {
     fontSize: 38,
@@ -37,16 +38,26 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     margin: 0,
     padding: 0,
-    textTransform:"uppercase"
+    textTransform: 'uppercase',
   },
   descriptioncontent: {
-    paddingHorizontal:20
+    paddingHorizontal: 20,
   },
   descriptionText: {
-    color:"white",
-    fontSize:18
+    color: 'white',
+    fontSize: 18,
   },
-  containerForm:{
-    paddingHorizontal:20
-  }
+  containerForm: {
+    paddingHorizontal: 20,
+  },
+  imageContainer: {
+    marginTop: 20,
+    flex: 1,
+  },
+  image: {
+    height: 400,
+    transform:[
+      {translateY:-20}
+    ]
+  },
 });

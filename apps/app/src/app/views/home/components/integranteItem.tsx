@@ -50,13 +50,13 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   avatarContent: {
-    flex: 1,
+    flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
   },
   avatar: {
-    width: 100,
-    height: 100,
+    width: 120,
+    height: 120,
     borderRadius: 60,
     backgroundColor: 'white',
   },

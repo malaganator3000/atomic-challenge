@@ -2,15 +2,14 @@ import {
   Text,
   View,
   TextInput,
-  Button,
-  Alert,
+  Appearance,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { useStatusform } from '../../../hooks/statusFrom';
 import { NARANJA } from '../../../const/color';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 export interface FormName {
   firstName: string;
   lastName: string;
@@ -19,13 +18,11 @@ export interface FormNamesProps {
   nextStep?: () => void;
 }
 
-export function FormNames({ nextStep }: FormNamesProps) {
+export const FormNames = ({ nextStep }: FormNamesProps) => {
   const [status, setName, setLast, setPhone] = useStatusform();
   const {
     control,
     handleSubmit,
-    getFieldState,
-
     formState: { errors, isValid },
   } = useForm<FormName>({
     defaultValues: {
@@ -33,7 +30,7 @@ export function FormNames({ nextStep }: FormNamesProps) {
       lastName: '',
     },
   });
-
+  console.log(errors);
   const onSubmit = (data: FormName) => {
     setName({
       valid: true,
@@ -55,7 +52,7 @@ export function FormNames({ nextStep }: FormNamesProps) {
       <Controller
         control={control}
         rules={{
-          required: 'el nombre es requerido',
+          required: 'N1ombre es requerido',
           minLength: {
             value: 2,
             message: 'El nombre debe tener minimo 2 caracteres',
@@ -118,7 +115,7 @@ export function FormNames({ nextStep }: FormNamesProps) {
       )}
       <View style={styles.buttoncontent}>
         <TouchableOpacity
-          disabled={!isValid}
+          // disabled={!isValid}
           onPress={handleSubmit(onSubmit)}
           style={{
             ...styles.buttonSumit,
@@ -130,7 +127,7 @@ export function FormNames({ nextStep }: FormNamesProps) {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -149,6 +146,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 15,
     backgroundColor: 'white',
+    color: 'black',
   },
   errorText: {
     color: 'red',

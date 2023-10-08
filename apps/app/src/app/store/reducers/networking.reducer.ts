@@ -27,7 +27,6 @@ export const networkingReducer = createReducer(initialState, (builder) =>
   builder
     .addCase(networkingActions.SET_EQUIPO, (state, action) => {
       state.equipo = action.payload;
-      state.loadingEquipo = false;
     })
     .addCase(networkingActions.SET_LOADING_EQUIPO, (state, action) => {
       state.loadingEquipo = action.payload;

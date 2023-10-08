@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { View, Text, Button, ScrollView } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native';
 import { PhoneViewProps } from './phone.types';
 import Background from '../../components/background';
 import { styles } from './phone.styl';
@@ -51,6 +51,13 @@ export const PhoneView: FC<PhoneViewProps> = ({ navigation, route }) => {
           </View>
           <View style={styles.containerForm}>
             <FormPhone nextStep={goToConfirm} />
+          </View>
+          <View style={styles.imageContainer}>
+            <Image
+              source={require('../../../assets/phone.png')}
+              resizeMode="contain"
+              style={styles.image}
+            />
           </View>
         </View>
       </ScrollView>

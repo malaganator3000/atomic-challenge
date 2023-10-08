@@ -45,6 +45,13 @@ export const ConfirmacionView: FC<ConfirmationViewProps> = ({
         <View style={styles.container}>
           <View style={styles.content}>
             <ActivityIndicator />
+            <View style={styles.imageContainer}>
+              <Image
+                source={require('../../../assets/confirmacion.png')}
+                resizeMode="contain"
+                style={styles.image}
+              />
+            </View>
           </View>
         </View>
       </Background>
@@ -63,7 +70,7 @@ export const ConfirmacionView: FC<ConfirmationViewProps> = ({
                     ...styles.titleText,
                   }}
                 >
-                  Algo salió mal
+                  Algo salió mal{' '}
                 </Text>
 
                 <Text
@@ -84,7 +91,7 @@ export const ConfirmacionView: FC<ConfirmationViewProps> = ({
 
             <View style={styles.imageContainer}>
               <Image
-                source={require('../../../assets/confirmacion.png')}
+                source={require('../../../assets/confirmacionerror.png')}
                 resizeMode="contain"
                 style={styles.image}
               />
@@ -150,7 +157,7 @@ export const ConfirmacionView: FC<ConfirmationViewProps> = ({
 
           <View style={styles.imageContainer}>
             <Image
-              source={require('../../../assets/confirmacion.png')}
+              source={require('../../../assets/confirmacionexito.png')}
               resizeMode="contain"
               style={styles.image}
             />

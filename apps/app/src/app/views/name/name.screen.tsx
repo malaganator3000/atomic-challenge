@@ -1,5 +1,5 @@
-import { FC, useEffect } from 'react';
-import { View, Text, Button, ScrollView } from 'react-native';
+import { FC } from 'react';
+import { View, Text, Image, ScrollView } from 'react-native';
 import { NameViewProps } from './name.types';
 import Background from '../../components/background';
 import { styles } from './name.styl';
@@ -53,6 +53,13 @@ export const NameView: FC<NameViewProps> = ({ navigation, route }) => {
           </View>
           <View style={styles.containerForm}>
             <FormNames nextStep={goToPhone} />
+          </View>
+          <View style={styles.imageContainer}>
+            <Image
+              source={require('../../../assets/names.png')}
+              resizeMode="contain"
+              style={styles.image}
+            />
           </View>
         </View>
       </ScrollView>
