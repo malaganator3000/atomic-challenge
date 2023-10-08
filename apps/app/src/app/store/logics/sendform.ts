@@ -49,12 +49,13 @@ export const sendFormLogic = createLogic({
         })
         .catch((err) => {
           Snackbar.show({
-            text: 'Ocurrio un error al enviar el formulario!',
+            text: err.toString(),
             action: {
-              text: err.toString(),
+              text: 'Ok',
               textColor: 'red',
             },
-            duration: Snackbar.LENGTH_LONG,
+            textColor: 'red',
+            duration: Snackbar.LENGTH_INDEFINITE,
           });
           dispatch(networkingActions.SET_ERROR_FORM(err));
         })

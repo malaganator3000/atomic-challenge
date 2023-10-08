@@ -36,7 +36,9 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     margin: 0,
     padding: 0,
-    textTransform:"uppercase"
+    textTransform:"uppercase",
+    includeFontPadding: false,
+    height: 39,
   },
   descriptioncontent: {
     paddingHorizontal:20

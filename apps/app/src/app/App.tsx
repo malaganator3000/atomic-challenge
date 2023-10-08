@@ -6,8 +6,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 export const App = () => {
   return (
-    <Provider store={store}>
-      <NavigationContainer>
+    <Provider store={store} >
+      <NavigationContainer >
         <RootNavigation />
       </NavigationContainer>
     </Provider>

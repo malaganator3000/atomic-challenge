@@ -45,7 +45,7 @@ export function Caracteristicas({}: CaracteristicasProps) {
               <CaracteristicaView item={item} key={item.id} />
             )}
             sliderWidth={width}
-            itemWidth={width}
+            itemWidth={width - 20}
           />
         </View>
       </View>
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     width: '95%',
     justifyContent: 'flex-start',
     alignItems: 'center',
+    padding:10
   },
   titleContent: {
     flexDirection: 'row',
@@ -78,10 +79,12 @@ const styles = StyleSheet.create({
     margin: 0,
     padding: 0,
     textTransform: 'uppercase',
+    lineHeight:40
   },
   carouselContent: {
     maxHeight: height - 250 - HeaderHeight,
     justifyContent: 'center',
     alignItems: 'center',
+    // padding:10
   },
 });

@@ -25,12 +25,10 @@ export const styles = StyleSheet.create({
   },
   title: {
     flex: 3,
-    // justifyContent: 'center',
-    // alignItems: 'center',
+    alignItems: 'center',
     marginHorizontal: 10,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    width: '100%',
   },
   titleText: {
     fontSize: 38,
@@ -39,6 +37,8 @@ export const styles = StyleSheet.create({
     margin: 0,
     padding: 0,
     textTransform: 'uppercase',
+    includeFontPadding: false,
+    height: 39,
   },
   descriptioncontent: {
     paddingHorizontal: 20,
@@ -56,8 +56,6 @@ export const styles = StyleSheet.create({
   },
   image: {
     height: 400,
-    transform:[
-      {translateY:-20}
-    ]
+    transform: [{ translateY: -20 }],
   },
 });

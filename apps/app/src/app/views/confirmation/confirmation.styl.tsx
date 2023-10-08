@@ -34,6 +34,8 @@ export const styles = StyleSheet.create({
     margin: 0,
     padding: 0,
     textTransform: 'uppercase',
+    includeFontPadding: false,
+    height: 39,
   },
   zoneDescriptions:{
     paddingHorizontal:15

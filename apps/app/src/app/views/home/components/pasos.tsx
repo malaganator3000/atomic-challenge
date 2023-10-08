@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
     margin: 0,
     padding: 0,
     textTransform: 'uppercase',
+    lineHeight:40
   },
   imageContainer: {
     marginTop: 20,

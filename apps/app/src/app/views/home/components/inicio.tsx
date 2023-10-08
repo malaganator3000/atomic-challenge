@@ -80,22 +80,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   content: {
-    width: '95%',
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
   titleContent: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'center',
+    justifyContent:"center",
     width: '100%',
   },
   baseText: {
-    fontSize: 42,
+    fontSize: 38,
     color: 'white',
     fontWeight: 'bold',
-    margin: 0,
-    padding: 0,
+    lineHeight:40
+    
   },
   buttonContainer: {
     alignItems: 'center',
@@ -116,6 +116,6 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginVertical: 25,
+    marginVertical: 10,
   },
 });

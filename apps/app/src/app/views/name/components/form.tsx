@@ -2,14 +2,27 @@ import {
   Text,
   View,
   TextInput,
-  Appearance,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
 import { useStatusform } from '../../../hooks/statusFrom';
 import { NARANJA } from '../../../const/color';
-import { useEffect, useState } from 'react';
+import * as Yup from 'yup';
+import { Formik } from 'formik';
+import { SOLO_LETRAS } from '../../../utils/regularExp';
+
+const NameSchema = Yup.object().shape({
+  firstName: Yup.string()
+    .min(2, 'El Nombre debe tener minimo 2 caracteres')
+    .max(100, 'El nombre no debe exceder los 100 caracteres')
+    .matches(SOLO_LETRAS, 'El nombre solo debe contener letras')
+    .required('El Nombre es requerido'),
+  lastName: Yup.string()
+    .min(2, 'El apellido debe tener minimo 2 caracteres')
+    .max(100, 'El apellido no debe exceder los 100 caracteres')
+    .matches(SOLO_LETRAS, 'El apellido solo debe contener letras')
+    .required('El Apellido es requerido'),
+});
 export interface FormName {
   firstName: string;
   lastName: string;
@@ -20,112 +33,67 @@ export interface FormNamesProps {
 
 export const FormNames = ({ nextStep }: FormNamesProps) => {
   const [status, setName, setLast, setPhone] = useStatusform();
-  const {
-    control,
-    handleSubmit,
-    formState: { errors, isValid },
-  } = useForm<FormName>({
-    defaultValues: {
-      firstName: '',
-      lastName: '',
-    },
-  });
-  console.log(errors);
-  const onSubmit = (data: FormName) => {
-    setName({
-      valid: true,
-      value: data.firstName,
-    });
-    setLast({
-      valid: true,
-      value: data.lastName,
-    });
-
+  const onSubmit = (values) => {
+    setName({ valid: true, value: values.firstName });
+    setLast({ valid: true, value: values.lastName });
     if (nextStep) {
       nextStep();
     }
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>Nombre(s)</Text>
-      <Controller
-        control={control}
-        rules={{
-          required: 'N1ombre es requerido',
-          minLength: {
-            value: 2,
-            message: 'El nombre debe tener minimo 2 caracteres',
-          },
-          maxLength: {
-            value: 100,
-            message: 'El nombre no debe exceder los 100 caracteres',
-          },
-          pattern: {
-            value: /^[A-Za-z\s]+$/i,
-            message: 'El nombre solo debe contener letras',
-          },
-        }}
-        render={({ field: { onChange, onBlur, value } }) => (
+    <Formik
+      initialValues={{ firstName: '', lastName: '' }}
+      validationSchema={NameSchema}
+      onSubmit={onSubmit}
+    >
+      {({
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        values,
+        errors,
+        touched,
+        isValid,
+      }) => (
+        <View style={styles.container}>
+          <Text style={styles.label}>Nombre(s)</Text>
           <TextInput
             style={styles.input}
-            placeholder="*Luis ..."
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
+            onChangeText={handleChange('firstName')}
+            onBlur={handleBlur('firstName')}
+            value={values.firstName}
+            placeholder="*Luis..."
           />
-        )}
-        name="firstName"
-      />
-      {errors.firstName && (
-        <Text style={styles.errorText}>{errors.firstName.message}</Text>
-      )}
+          {errors.firstName && touched.firstName && (
+            <Text style={styles.errorText}>{errors.firstName.toString()}</Text>
+          )}
 
-      <Text style={styles.label}>Apellidos</Text>
-      <Controller
-        control={control}
-        rules={{
-          required: 'Apellido es requerido',
-          minLength: {
-            value: 2,
-            message: 'El apellido debe tener minimo 2 caracteres',
-          },
-          maxLength: {
-            value: 100,
-            message: 'El apellido no debe exceder los 100 caracteres',
-          },
-          pattern: {
-            value: /^[A-Za-z\s]+$/i,
-            message: 'El apellido solo debe contener letras',
-          },
-        }}
-        render={({ field: { onChange, onBlur, value } }) => (
+          <Text style={styles.label}>Apellidos</Text>
           <TextInput
             style={styles.input}
+            onChangeText={handleChange('lastName')}
+            onBlur={handleBlur('lastName')}
+            value={values.lastName}
             placeholder="*Malaga..."
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
           />
-        )}
-        name="lastName"
-      />
-      {errors.lastName && (
-        <Text style={styles.errorText}>{errors.lastName.message}</Text>
+          {errors.lastName && touched.lastName && (
+            <Text style={styles.errorText}>{errors.lastName.toString()}</Text>
+          )}
+
+          <View style={styles.buttoncontent}>
+            <TouchableOpacity
+              testID="Enviar"
+              disabled={!isValid}
+              onPress={() => handleSubmit()}
+              style={{ ...styles.buttonSumit, opacity: isValid ? 1 : 0.5 }}
+            >
+              <Text style={styles.buttonText}>Enviar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       )}
-      <View style={styles.buttoncontent}>
-        <TouchableOpacity
-          // disabled={!isValid}
-          onPress={handleSubmit(onSubmit)}
-          style={{
-            ...styles.buttonSumit,
-            opacity: isValid ? 1 : 0.5,
-          }}
-        >
-          <Text style={styles.buttonText}>Enviar</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    </Formik>
   );
 };
 

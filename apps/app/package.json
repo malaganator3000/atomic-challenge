@@ -23,7 +23,9 @@
     "redux-logic": "*",
     "react-native-snackbar": "*",
     "react-native-snap-carousel": "*",
-    "react-hook-form": "*"
+    "react-hook-form": "*",
+    "yup": "*",
+    "formik": "*"
   },
   "devDependencies": {
     "@types/react": "18.0.28"

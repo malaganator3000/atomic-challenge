@@ -5,13 +5,15 @@
   "scripts": {
     "start": " nx run app:serve",
     "android": "nx run app:run-android",
-    "build:android":"nx run app:build-android"
+    "build:android": "nx run app:build-android",
+    "test":"nx run app:test"
   },
   "private": true,
   "dependencies": {
     "@react-navigation/native": "^6.1.8",
     "@react-navigation/native-stack": "^6.9.14",
     "@reduxjs/toolkit": "^1.9.7",
+    "formik": "^2.4.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.36.1",
@@ -26,7 +28,8 @@
     "redux-logger": "^3.0.6",
     "redux-logic": "^3.0.3",
     "rxjs": "^6",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "yup": "^1.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.5",

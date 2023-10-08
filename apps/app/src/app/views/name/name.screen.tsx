@@ -31,6 +31,7 @@ export const NameView: FC<NameViewProps> = ({ navigation, route }) => {
                 style={{
                   ...styles.titleText,
                 }}
+                
               >
                 Te Queremos{' '}
               </Text>

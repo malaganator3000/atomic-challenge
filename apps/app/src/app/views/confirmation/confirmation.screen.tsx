@@ -150,7 +150,7 @@ export const ConfirmacionView: FC<ConfirmationViewProps> = ({
             </View>
             <View style={styles.descriptioncontent}>
               <Text style={styles.descriptionText}>
-                Requerda revisar tu bandeja de SPAM ¡Esperamos verte Pronto!
+                Recuerda revisar tu bandeja de SPAM ¡Esperamos verte Pronto!
               </Text>
             </View>
           </View>
