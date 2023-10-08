@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 interface IconButtonProps {
-  onPress: () => void;
+  onPress?: () => void;
   iconSource: ImageSourcePropType;
   width?: number;
   height?: number;

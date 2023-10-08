@@ -13,11 +13,6 @@ export const useGetNames: UseGetNames = () => {
   const equipo = useSelector(equipoSelector);
   const loading = useSelector(loadingEquipoSelector);
   const getData = () => {
-    if (equipo && equipo.length > 0) {
-      dispatch(networkingActions.SET_LOADING_EQUIPO(false))
-      return
-    }
-
     dispatch(networkingActions.GET_NAMES());
   };
 

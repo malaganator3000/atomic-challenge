@@ -18,7 +18,7 @@ export const CARACTERISTICAS: Caracteristica[] = [
         { id: '1-2', text: ' digital', fontWeight: 'normal' },
       ],
       [
-        { id: '1-3', text: 'big data &', fontWeight: 'normal' },
+        { id: '1-3', text: 'Big data &', fontWeight: 'normal' },
         { id: '1-4', text: ' Analysis', fontWeight: 'bold' },
       ],
       [

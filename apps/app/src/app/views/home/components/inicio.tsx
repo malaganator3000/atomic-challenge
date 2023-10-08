@@ -43,7 +43,7 @@ export function Inicio({ name, handleGoTo, goRegister }: InicioProps) {
     <View onLayout={onLayout} style={styles.container}>
       <View style={styles.content}>
         <View style={styles.titleContent}>
-          <Text style={{ ...styles.baseText }}>Desarrola todo</Text>
+          <Text style={{ ...styles.baseText }}>Desarrolla todo</Text>
           <Text style={{ ...styles.baseText, color: NARANJA }}>
             tu POTENCIAL
           </Text>

@@ -20,7 +20,7 @@ export const RootNavigation: FC<{}> = () => {
       <Stack.Screen
         name="Register"
         component={RegisterNavigation}
-        options={options}
+        options={{headerShown:false}}
       />
       <Stack.Screen
         name="Confirmation"

@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": " nx run app:serve",
-    "android": "nx run app:run-android"
+    "android": "nx run app:run-android",
+    "build:android":"nx run app:build-android"
   },
   "private": true,
   "dependencies": {
@@ -13,6 +14,7 @@
     "@reduxjs/toolkit": "^1.9.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.47.0",
     "react-native": "0.72.4",
     "react-native-safe-area-context": "^4.7.2",
     "react-native-screens": "^3.25.0",

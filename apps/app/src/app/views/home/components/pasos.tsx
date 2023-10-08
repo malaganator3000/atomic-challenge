@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 3,
+    flex: 2,
   },
   pasoText: {
     color: 'white',

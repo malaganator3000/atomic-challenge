@@ -15,3 +15,13 @@ export const loadingFormSelector = createSelector(
   (state: RootSate) => state.networking,
   (networking) => networking.loadingForm
 );
+
+export const statusformSelector = createSelector(
+  (state: RootSate) => state.networking,
+  (networking) => networking.statusesForm
+);
+
+export const errorFormSelector = createSelector(
+  (state: RootSate) => state.networking,
+  (networking) => networking.errForm
+);
