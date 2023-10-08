@@ -32,6 +32,7 @@ export interface FormNamesProps {
 }
 
 export const FormNames = ({ nextStep }: FormNamesProps) => {
+  const initialValues:FormName={ firstName: '', lastName: '' }
   const [status, setName, setLast, setPhone] = useStatusform();
   const onSubmit = (values) => {
     setName({ valid: true, value: values.firstName });
@@ -43,7 +44,7 @@ export const FormNames = ({ nextStep }: FormNamesProps) => {
 
   return (
     <Formik
-      initialValues={{ firstName: '', lastName: '' }}
+      initialValues={initialValues}
       validationSchema={NameSchema}
       onSubmit={onSubmit}
     >

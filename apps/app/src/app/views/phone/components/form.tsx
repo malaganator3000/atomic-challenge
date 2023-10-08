@@ -28,6 +28,7 @@ export interface FormPhoneProps {
 }
 
 export const FormPhone = ({ nextStep }: FormPhoneProps) => {
+  const initialValues: FormPhone = { phone: '' };
   const [status, setName, setLast, setPhone] = useStatusform();
   const onSubmit = (values) => {
     setPhone({ valid: true, value: values.phone });
@@ -38,7 +39,7 @@ export const FormPhone = ({ nextStep }: FormPhoneProps) => {
 
   return (
     <Formik
-      initialValues={{ phone: '' }}
+      initialValues={initialValues}
       validationSchema={PhoneSchema}
       onSubmit={onSubmit}
     >
