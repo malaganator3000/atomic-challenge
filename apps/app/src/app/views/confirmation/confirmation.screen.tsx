@@ -4,6 +4,7 @@ import {
   Text,
   Image,
   ActivityIndicator,
+  Dimensions,
   BackHandler,
 } from 'react-native';
 import { ConfirmationViewProps } from './confirmation.types';
@@ -11,7 +12,8 @@ import Background from '../../components/background';
 import { styles } from './confirmation.styl';
 import { useSendForm } from '../../hooks/sendForm';
 import { NARANJA } from '../../const/color';
-
+import { DeviceSize, getDeviceSize } from '../../utils/deviceSize';
+const { height } = Dimensions.get('screen');
 export const ConfirmacionView: FC<ConfirmationViewProps> = ({
   navigation,
   route,
@@ -43,7 +45,10 @@ export const ConfirmacionView: FC<ConfirmationViewProps> = ({
     return (
       <Background>
         <View style={styles.container}>
-          <View style={styles.content}>
+          <View style={{
+            ...styles.content,
+            justifyContent:"center"
+          }}>
             <ActivityIndicator />
             <View style={styles.imageContainer}>
               <Image
@@ -121,7 +126,7 @@ export const ConfirmacionView: FC<ConfirmationViewProps> = ({
                   ...styles.titleText,
                 }}
               >
-                Ha sido{' '}
+                Han sido{' '}
               </Text>
               <Text
                 style={{
@@ -129,7 +134,7 @@ export const ConfirmacionView: FC<ConfirmationViewProps> = ({
                   color: NARANJA,
                 }}
               >
-                Enviado{' '}
+                Enviados{' '}
               </Text>
               <Text
                 style={{
@@ -159,7 +164,14 @@ export const ConfirmacionView: FC<ConfirmationViewProps> = ({
             <Image
               source={require('../../../assets/confirmacionexito.png')}
               resizeMode="contain"
-              style={styles.image}
+              style={{
+                ...styles.image,
+                ...(getDeviceSize(height) == DeviceSize.Pequeno
+                  ? {
+                      height: 100,
+                    }
+                  : {}),
+              }}
             />
           </View>
         </View>

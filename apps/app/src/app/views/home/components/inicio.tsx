@@ -14,6 +14,7 @@ import IconButton from '../../../components/IconButton';
 import { useGetSections } from '../../../hooks/getSections';
 import { AZUL, NARANJA } from '../../../const/color';
 import { QuieroSerParte } from './quieroSerParte';
+import { DeviceSize, getDeviceSize } from '../../../utils/deviceSize';
 const { height } = Dimensions.get('screen');
 export interface InicioProps extends SectionProps {
   goRegister: () => void;
@@ -43,18 +44,27 @@ export function Inicio({ name, handleGoTo, goRegister }: InicioProps) {
     <View onLayout={onLayout} style={styles.container}>
       <View style={styles.content}>
         <View style={styles.titleContent}>
-          <Text style={{ ...styles.baseText }}>Desarrolla todo</Text>
-          <Text style={{ ...styles.baseText, color: NARANJA }}>
-            tu POTENCIAL
-          </Text>
-          <Text style={{ ...styles.baseText }}>dentro del equipo</Text>
-          <Text style={{ ...styles.baseText, color: NARANJA }}> ATOMIC</Text>
-          <Text style={{ ...styles.baseText }}>LABS</Text>
+          <View style={styles.titltTextContent}>
+            <Text style={{ ...styles.titltText }}>Desarrolla todo</Text>
+          </View>
+          <View style={styles.titltTextContent}>
+            <Text style={{ ...styles.titltText, color: NARANJA }}>
+              tu POTENCIAL
+            </Text>
+          </View>
+          <View style={styles.titltTextContent}>
+            <Text style={{ ...styles.titltText }}>dentro del equipo</Text>
+          </View>
+          <View style={styles.titltTextContent}>
+            <Text style={{ ...styles.titltText, color: NARANJA }}> ATOMIC</Text>
+            <Text style={{ ...styles.titltText }}>LABS</Text>
+          </View>
         </View>
         <View style={styles.buttonContainer}>
           <IconButton
             onPress={gotTo}
             iconSource={require('../../../../assets/icon1.png')}
+            
           />
           <Text style={styles.moreText}>Quiero saber más</Text>
         </View>
@@ -62,7 +72,14 @@ export function Inicio({ name, handleGoTo, goRegister }: InicioProps) {
           <Image
             source={require('../../../../assets/inicio.png')}
             resizeMode="contain"
-            style={styles.image}
+            style={{
+              ...styles.image,
+              ...(getDeviceSize(height) == DeviceSize.Pequeno
+                ? {
+                    height: 100,
+                  }
+                : {}),
+            }}
           />
         </View>
         <View style={styles.botoncontent}>
@@ -75,7 +92,7 @@ export function Inicio({ name, handleGoTo, goRegister }: InicioProps) {
 
 const styles = StyleSheet.create({
   container: {
-    height: height - HeaderHeight,
+    minHeight: height - HeaderHeight,
     width: '100%',
     alignItems: 'center',
   },
@@ -87,15 +104,23 @@ const styles = StyleSheet.create({
   titleContent: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent:"center",
+    justifyContent: 'center',
     width: '100%',
   },
-  baseText: {
+  titltTextContent: {
+    flexDirection:"row",
+    flexWrap: 'wrap',
+    width:"100%",
+    justifyContent:"center",
+    alignItems:"center"
+  },
+  titltText: {
     fontSize: 38,
     color: 'white',
     fontWeight: 'bold',
-    lineHeight:40
-    
+    textAlign:"center",
+    // width:"100%"
+    // lineHeight: 40,
   },
   buttonContainer: {
     alignItems: 'center',
@@ -110,7 +135,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   image: {
-    height: 300,  
+    height: 300,
   },
   botoncontent: {
     width: '100%',

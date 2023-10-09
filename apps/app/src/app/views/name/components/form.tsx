@@ -4,6 +4,7 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import { useStatusform } from '../../../hooks/statusFrom';
 import { NARANJA } from '../../../const/color';
@@ -57,7 +58,7 @@ export const FormNames = ({ nextStep }: FormNamesProps) => {
         touched,
         isValid,
       }) => (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
           <Text style={styles.label}>Nombre(s)</Text>
           <TextInput
             style={styles.input}
@@ -92,7 +93,7 @@ export const FormNames = ({ nextStep }: FormNamesProps) => {
               <Text style={styles.buttonText}>Enviar</Text>
             </TouchableOpacity>
           </View>
-        </View>
+        </ScrollView>
       )}
     </Formik>
   );

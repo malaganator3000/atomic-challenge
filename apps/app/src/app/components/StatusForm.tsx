@@ -39,8 +39,8 @@ export function Statusform({}: StatusformProps) {
     <View style={styles.container}>
       <View style={styles.content}>
         <View style={styles.stepsContent}>
-          <IconButton width={24} height={24} iconSource={step1IconSource} />
-          <IconButton width={24} height={24} iconSource={step2IconSource} />
+          <IconButton width={34} height={34} iconSource={step1IconSource} />
+          <IconButton width={34} height={34} iconSource={step2IconSource} />
         </View>
         <View style={styles.linecontent}>
           <View
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     height: 35,
+    margin:5
   },
   linecontent: {
     width: '100%',

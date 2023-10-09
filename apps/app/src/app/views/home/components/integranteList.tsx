@@ -46,10 +46,14 @@ export function IntegranteList({}: IntegranteListProps) {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   content: {
     width: '100%',
     justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal:15
   },
   activityContent: {
     width: '100%',

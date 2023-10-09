@@ -42,7 +42,6 @@ export function Pasos({ goRegister }: PasosProps) {
           <View style={styles.pasoArrowcontent}>
             <ArrowRightIcon />
           </View>
-
           <View style={styles.pasoTextcontent}>
             <Text style={styles.pasoText}>Entrevista con el área de RH</Text>
           </View>
@@ -79,6 +78,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
+    alignItems:"center",
     width: '100%',
   },
   titleText: {
@@ -108,16 +108,17 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-    flex: 2,
+    flex: 1,
   },
   pasoText: {
     color: 'white',
     fontSize: 12,
   },
   pasoArrowcontent: {
-    flex: 1,
+    // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    marginHorizontal:10
   },
 
   botoncontent: {

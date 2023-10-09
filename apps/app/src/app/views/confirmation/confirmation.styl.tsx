@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   content: {
     width: '100%',
     height: '100%',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     alignItems: 'center',
   },
   titleContent: {
@@ -52,6 +52,6 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   image: {
-    height: 300,
+    height: 250,
   },
 });

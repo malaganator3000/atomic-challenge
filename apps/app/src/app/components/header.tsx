@@ -1,8 +1,8 @@
 import { NativeStackHeaderProps } from '@react-navigation/native-stack';
 import React, { FC } from 'react';
 import { View, Text, StyleSheet, Image, StatusBar } from 'react-native';
-export const HeaderHeight = 64 + StatusBar.currentHeight
- const Header = (props: NativeStackHeaderProps) => {
+export const HeaderHeight = 64 + StatusBar.currentHeight;
+const Header: FC<NativeStackHeaderProps> = (props) => {
   return (
     <View style={styles.headerContainer}>
       <StatusBar
@@ -11,7 +11,7 @@ export const HeaderHeight = 64 + StatusBar.currentHeight
         barStyle="light-content"
       />
       <View style={styles.contentContainer}>
-        <Image source={require('../../assets/logo.png')} style={styles.logo} />
+        <Image source={require('../../assets/logito.png')} style={styles.logo} />
         <View style={styles.divider}></View>
         <View style={styles.companyName}>
           <Text style={styles.atomicText}>atomic</Text>
@@ -24,8 +24,8 @@ export const HeaderHeight = 64 + StatusBar.currentHeight
 
 const styles = StyleSheet.create({
   headerContainer: {
-    height:HeaderHeight,
-    backgroundColor: 'transparent', 
+    height: HeaderHeight,
+    backgroundColor: 'transparent',
     justifyContent: 'center',
   },
   contentContainer: {
@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
     paddingTop: StatusBar.currentHeight,
   },
   logo: {
-    width: 40, 
-    height: 40, 
+    width: 40,
+    height: 40,
     resizeMode: 'contain',
   },
   divider: {
@@ -44,14 +44,15 @@ const styles = StyleSheet.create({
     height: 40,
     width: 1,
     backgroundColor: 'white',
+    opacity:0.5
   },
   companyName: {
-    flexDirection: 'row', 
+    flexDirection: 'row',
   },
   atomicText: {
     fontSize: 14,
     color: '#FFF',
-    fontWeight:"500"
+    fontWeight: '500',
   },
   labsText: {
     fontSize: 14,
@@ -60,4 +61,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Header
+export default Header;

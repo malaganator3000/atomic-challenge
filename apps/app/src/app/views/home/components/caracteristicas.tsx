@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
+    alignItems:"center",
     width: '100%',
     marginBottom: 20,
   },
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
     lineHeight:40
   },
   carouselContent: {
-    maxHeight: height - 250 - HeaderHeight,
+    maxHeight: 600,
     justifyContent: 'center',
     alignItems: 'center',
     // padding:10

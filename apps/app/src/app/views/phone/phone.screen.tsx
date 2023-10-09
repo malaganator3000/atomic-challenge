@@ -2,11 +2,12 @@ import { FC } from 'react';
 import { View, Text, Image, ScrollView } from 'react-native';
 import { PhoneViewProps } from './phone.types';
 import Background from '../../components/background';
-import { styles } from './phone.styl';
+import { height, styles } from './phone.styl';
 import { Statusform } from '../../components/StatusForm';
 import IconButton from '../../components/IconButton';
 import { NARANJA } from '../../const/color';
 import { FormPhone } from './components/form';
+import { DeviceSize, getDeviceSize } from '../../utils/deviceSize';
 
 export const PhoneView: FC<PhoneViewProps> = ({ navigation, route }) => {
   const goToConfirm = () => {
@@ -31,9 +32,15 @@ export const PhoneView: FC<PhoneViewProps> = ({ navigation, route }) => {
                   ...styles.titleText,
                 }}
               >
-                Valida tu{' '}
+                Valida{' '}
               </Text>
-
+              <Text
+                style={{
+                  ...styles.titleText,
+                }}
+              >
+                tu{' '}
+              </Text>
               <Text
                 style={{
                   ...styles.titleText,
@@ -45,22 +52,27 @@ export const PhoneView: FC<PhoneViewProps> = ({ navigation, route }) => {
             </View>
           </View>
           <View style={styles.descriptioncontent}>
-            <Text style={styles.descriptionText}>Necesitamos validar tu número para continuar</Text>
-            <Text style={styles.descriptionText}>Ingresa tu número de 10 dígitos y te enviaremos un código SMS.</Text>
-          
+            <Text style={styles.descriptionText}>
+              Necesitamos validar tu número para continuar
+            </Text>
+            <Text style={styles.descriptionText}>
+              Ingresa tu número de 10 dígitos y te enviaremos un código SMS.
+            </Text>
           </View>
           <View style={styles.containerForm}>
             <FormPhone nextStep={goToConfirm} />
           </View>
-          <View style={styles.imageContainer}>
-            <Image
-              source={require('../../../assets/phone.png')}
-              resizeMode="contain"
-              style={styles.image}
-            />
-          </View>
         </View>
       </ScrollView>
+      {getDeviceSize(height) != DeviceSize.Pequeno && (
+        <View style={styles.imageContainer}>
+          <Image
+            source={require('../../../assets/phone.png')}
+            resizeMode="contain"
+            style={styles.image}
+          />
+        </View>
+      )}
     </Background>
   );
 };
