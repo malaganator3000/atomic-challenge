@@ -3,7 +3,7 @@ import { useAddSection } from '../../../hooks/addSection';
 import { SectionProps } from '../types/SectionProps';
 import { NARANJA } from '../../../const/color';
 import { QuieroSerParte } from './quieroSerParte';
-import ArrowRightIcon from '../../../components/arrowIcon';
+import ArrowRightIcon from '../../../components/ArrowRightIcon';
 
 export interface PasosProps extends SectionProps {
   goRegister: () => void;
@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
   },
   pasoArrowcontent: {
-    // flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal:10

@@ -6,8 +6,8 @@ const Background = (props) => {
 
   useEffect(() => {
 
-    const maxX = 100; 
-    const maxY = 100; 
+    const maxX = 50; 
+    const maxY = 50; 
 
     const randomX = Math.floor(Math.random() * maxX) - maxX / 2;
     const randomY = Math.floor(Math.random() * maxY) - maxY / 2;

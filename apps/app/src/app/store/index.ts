@@ -4,13 +4,18 @@ import { sectionsReducer } from './reducers/sections.reducer';
 import { networkingReducer } from './reducers/networking.reducer';
 import logicMiddleware from './logics';
 import { carouselReducer } from './reducers/carousel.reducer';
+import { headerReducer } from './reducers/header.reducer';
 
-const middleware = [createLogger(), logicMiddleware({})];
+const middleware = [
+  // createLogger(),
+  logicMiddleware({}),
+];
 const store = configureStore({
   reducer: combineReducers({
     sections: sectionsReducer,
     networking: networkingReducer,
     carouseles: carouselReducer,
+    header: headerReducer,
   }),
   middleware,
 });

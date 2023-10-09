@@ -37,7 +37,7 @@ export function Footer({}: FooterProps) {
               onPress={() => handleOpenURL('https://www.linkedin.com/company/atomic-32')}
             >
               <Image
-                source={require('../../../../assets/linkedin.png')}
+                source={require('../../assets/linkedin.png')}
                 style={styles.icon}
               />
             </TouchableOpacity>
@@ -45,7 +45,7 @@ export function Footer({}: FooterProps) {
               onPress={() => handleOpenURL('https://twitter.com/Atomic_32')}
             >
               <Image
-                source={require('../../../../assets/twitter.png')}
+                source={require('../../assets/twitter.png')}
                 style={styles.icon}
               />
             </TouchableOpacity>

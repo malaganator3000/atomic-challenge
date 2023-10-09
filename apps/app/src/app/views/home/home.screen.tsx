@@ -1,15 +1,29 @@
-import { FC, useEffect, useRef } from 'react';
+import { FC, useRef } from 'react';
 import { HomeViewProps } from './home.types';
-import { View, Text, Button, ScrollView } from 'react-native';
+import {
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  ScrollView,
+} from 'react-native';
 import Background from '../../components/background';
 import { Inicio } from './components/inicio';
 import { Caracteristicas } from './components/caracteristicas';
 import { Pasos } from './components/pasos';
 import { Equipo } from './components/equipo';
-import { Footer } from './components/footer';
+import { Footer } from '../../components/footer';
+import { HeaderProps, withScroll } from '../../components/WithScrollWrapper';
 
-export const HomeView: FC<HomeViewProps> = ({ navigation, route }) => {
+const HomeView: FC<HomeViewProps & HeaderProps> = ({
+  navigation,
+  route,
+  updateScrollOffset,
+}) => {
   const scrollViewRef = useRef<ScrollView>(null);
+
+  const onScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    updateScrollOffset(event.nativeEvent.contentOffset.y);
+  };
+
   const go = (y: number) => {
     scrollViewRef.current?.scrollTo({ x: 0, y, animated: true });
   };
@@ -19,7 +33,7 @@ export const HomeView: FC<HomeViewProps> = ({ navigation, route }) => {
   };
   return (
     <Background>
-      <ScrollView ref={scrollViewRef}>
+      <ScrollView ref={scrollViewRef} onScroll={onScroll}>
         <Inicio
           name="Inicio"
           handleGoTo={{
@@ -36,3 +50,5 @@ export const HomeView: FC<HomeViewProps> = ({ navigation, route }) => {
     </Background>
   );
 };
+const EnhancedHomeView = withScroll(HomeView);
+export { EnhancedHomeView as HomeView };

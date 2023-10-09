@@ -2,16 +2,19 @@ import { FC } from 'react';
 import { View, Text, Image, ScrollView } from 'react-native';
 import { PhoneViewProps } from './phone.types';
 import Background from '../../components/background';
-import { height, styles } from './phone.styl';
+import { styles } from './phone.styl';
 import { Statusform } from '../../components/StatusForm';
 import IconButton from '../../components/IconButton';
 import { NARANJA } from '../../const/color';
 import { FormPhone } from './components/form';
-import { DeviceSize, getDeviceSize } from '../../utils/deviceSize';
+import { Footer } from '../../components/footer';
 
 export const PhoneView: FC<PhoneViewProps> = ({ navigation, route }) => {
   const goToConfirm = () => {
-    navigation.navigate('Confirmation');
+    navigation.getParent().reset({
+      index: 1,
+      routes: [{ name: 'Home' }, { name: 'Confirmation' }],
+    });
   };
   return (
     <Background>
@@ -62,17 +65,16 @@ export const PhoneView: FC<PhoneViewProps> = ({ navigation, route }) => {
           <View style={styles.containerForm}>
             <FormPhone nextStep={goToConfirm} />
           </View>
+          <View style={styles.imageContainer}>
+            <Image
+              source={require('../../../assets/phone.png')}
+              resizeMode="contain"
+              style={styles.image}
+            />
+          </View>
+          <Footer />
         </View>
       </ScrollView>
-      {getDeviceSize(height) != DeviceSize.Pequeno && (
-        <View style={styles.imageContainer}>
-          <Image
-            source={require('../../../assets/phone.png')}
-            resizeMode="contain"
-            style={styles.image}
-          />
-        </View>
-      )}
     </Background>
   );
 };

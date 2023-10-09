@@ -1,12 +1,7 @@
-import { StyleSheet, Dimensions } from 'react-native';
-import { HeaderHeight } from '../../components/header';
-export const { height } = Dimensions.get('screen');
+import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   container: {
-    height:height-HeaderHeight,
     width: '100%',
-    
-    // backgroundColor: 'blue',
   },
   content: {
     width: '100%',
@@ -24,13 +19,13 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    margin:5
+    margin: 5,
   },
   title: {
     flex: 3,
     alignItems: 'center',
     // marginHorizontal: 10,
-    paddingHorizontal:10,
+    paddingHorizontal: 10,
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
@@ -56,11 +51,9 @@ export const styles = StyleSheet.create({
   },
   imageContainer: {
     // marginTop: 20,
-    flex: 1,
-    position:"absolute",
-    top:height - HeaderHeight - 150,
-    zIndex:0
-
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   image: {
     height: 400,

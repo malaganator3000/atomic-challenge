@@ -2,12 +2,12 @@ import { FC } from 'react';
 import { View, Text, Image, ScrollView } from 'react-native';
 import { NameViewProps } from './name.types';
 import Background from '../../components/background';
-import { height, styles } from './name.styl';
+import {  styles } from './name.styl';
 import { Statusform } from '../../components/StatusForm';
 import IconButton from '../../components/IconButton';
 import { NARANJA } from '../../const/color';
 import { FormNames } from './components/form';
-import { DeviceSize, getDeviceSize } from '../../utils/deviceSize';
+import { Footer } from '../../components/footer';
 
 export const NameView: FC<NameViewProps> = ({ navigation, route }) => {
   const goToPhone = () => {
@@ -61,10 +61,6 @@ export const NameView: FC<NameViewProps> = ({ navigation, route }) => {
           <View style={styles.containerForm}>
             <FormNames nextStep={goToPhone} />
           </View>
-        </View>
-        
-      </ScrollView>
-      {getDeviceSize(height) != DeviceSize.Pequeno && (
           <View style={styles.imageContainer}>
             <Image
               source={require('../../../assets/names.png')}
@@ -72,7 +68,9 @@ export const NameView: FC<NameViewProps> = ({ navigation, route }) => {
               style={styles.image}
             />
           </View>
-        )}
+          <Footer />
+        </View>
+      </ScrollView>
     </Background>
   );
 };

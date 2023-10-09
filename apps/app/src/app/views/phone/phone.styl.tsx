@@ -1,6 +1,4 @@
 import { StyleSheet, Dimensions} from 'react-native';
-import { HeaderHeight } from '../../components/header';
-export const {height} = Dimensions.get("screen")
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -54,10 +52,6 @@ export const styles = StyleSheet.create({
   },
   imageContainer: {
     // marginTop: 20,
-    flex: 1,
-    position:"absolute",
-    top:height - HeaderHeight - 200,
-    zIndex:0,
     justifyContent:"center",
     alignItems:"center",
     width:"100%"
